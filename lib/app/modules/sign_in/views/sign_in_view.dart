@@ -10,7 +10,7 @@ class SignInView extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
