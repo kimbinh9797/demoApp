@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:todo_application/app/data/models/user.dart';
 import 'package:todo_application/app/routes/app_pages.dart';
 
-import '../../../common/constants.dart';
+import '../../../../data/constants.dart';
+import '../../../../domain/entities/user.dart';
+import '../../../widgets/decoration_text_form_field.dart';
 import '../controllers/sign_up_controller.dart';
 
 class SignUpView extends GetView<SignUpController> {
@@ -92,8 +93,7 @@ class SignUpView extends GetView<SignUpController> {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Please enter your password";
-                } else if (!RegExp(
-                        r'^(?=.*?[A-Z])(?=.*?[a-z])')
+                } else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])')
                     .hasMatch(value)) {
                   return "Please enter correct password with uppercase and lowercase letters";
                 } else {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todo_application/app/common/constants.dart';
-import 'package:todo_application/app/data/repositories/api_repository.dart';
+import 'package:todo_application/data/constants.dart';
 import 'package:todo_application/app/routes/app_pages.dart';
+import 'package:todo_application/data/repositories/api_repository_impl.dart';
 
 class SignInController extends GetxController {
-  ApiRepository apiRepository = ApiRepository();
+  ApiRepositoryImpl apiRepository = ApiRepositoryImpl();
   final formKey = GlobalKey<FormState>();
   RxBool isLoading = false.obs;
   RxString email = "".obs;

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:todo_application/app/common/constants.dart';
-import 'package:todo_application/app/data/models/todo.dart';
+import 'package:todo_application/data/constants.dart';
 
+import '../../../../domain/entities/todo.dart';
+import '../../../widgets/decoration_text_form_field.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:todo_application/app/common/constants.dart';
+import 'package:todo_application/data/constants.dart';
 import 'package:todo_application/app/routes/app_pages.dart';
+import '../../../widgets/decoration_text_form_field.dart';
 import '../controllers/sign_in_controller.dart';
 
 class SignInView extends GetView<SignInController> {
@@ -77,8 +78,7 @@ class SignInView extends GetView<SignInController> {
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Please enter your password";
-                } else if (!RegExp(
-                        r'^(?=.*?[A-Z])(?=.*?[a-z])')
+                } else if (!RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])')
                     .hasMatch(value)) {
                   return "Please enter correct password";
                 } else {

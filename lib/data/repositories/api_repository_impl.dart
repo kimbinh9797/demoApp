@@ -1,9 +1,12 @@
-import 'package:todo_application/app/services/s_sqlite.dart';
+import 'package:todo_application/data/helpers/database_helper.dart';
 
-class ApiRepository {
+import '../../domain/repositories/api_repository.dart';
+
+class ApiRepositoryImpl extends ApiRepository {
+  @override
   Future<Map<String, dynamic>> login(String email, String password) async {
-    SqliteServices sqliteServices = SqliteServices();
-    final res = await sqliteServices.getUser(email, password);
+    DatabaseHelper databaseHelper = DatabaseHelper();
+    final res = await databaseHelper.getUser(email, password);
     if (res != null) {
       return {
         "status": "Success",

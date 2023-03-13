@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:todo_application/app/common/constants.dart';
+import 'package:todo_application/data/constants.dart';
 
 import 'app/routes/app_pages.dart';
-import 'app/services/s_sqlite.dart';
+import 'data/helpers/database_helper.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SqliteServices().openDB();
+  await DatabaseHelper().openDB();
   SharedPreferences pref = await SharedPreferences.getInstance();
   bool isLogin = pref.getBool(kCheckLogin) ?? false;
   runApp(

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_application/app/routes/app_pages.dart';
-import 'package:todo_application/app/services/s_sqlite.dart';
-
-import '../../../data/models/user.dart';
+import 'package:todo_application/data/helpers/database_helper.dart';
+import '../../../../domain/entities/user.dart';
 
 class SignUpController extends GetxController {
-  SqliteServices sqliteServices = SqliteServices();
+  DatabaseHelper databaseHelper = DatabaseHelper();
   final formKey = GlobalKey<FormState>();
   RxBool isLoading = false.obs;
   RxString name = "".obs;
@@ -17,7 +16,7 @@ class SignUpController extends GetxController {
     if (formKey.currentState!.validate()) {
       isLoading.value = true;
       Future.delayed(const Duration(seconds: 2), () async {
-        var res = await sqliteServices.insertUser(user);
+        var res = await databaseHelper.insertUser(user);
         if (res != 0) {
           Get.snackbar("Sign up Successfully", "",
               snackPosition: SnackPosition.BOTTOM);
